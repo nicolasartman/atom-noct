@@ -1,0 +1,239 @@
+@import "syntax-variables";
+
+atom-text-editor, :host {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+}
+
+atom-text-editor .gutter, :host .gutter {
+  background-color: @syntax-gutter-background-color;
+  color: @syntax-gutter-text-color;
+}
+
+atom-text-editor .gutter .line-number.cursor-line, :host .gutter .line-number.cursor-line {
+  background-color: @syntax-gutter-background-color-selected;
+  color: @syntax-gutter-text-color-selected;
+}
+
+atom-text-editor .gutter .line-number.cursor-line-no-selection, :host .gutter .line-number.cursor-line-no-selection {
+  color: @syntax-gutter-text-color-selected;
+}
+
+atom-text-editor .wrap-guide, :host .wrap-guide {
+  color: @syntax-wrap-guide-color;
+}
+
+atom-text-editor .indent-guide, :host .indent-guide {
+  color: @syntax-indent-guide-color;
+}
+
+atom-text-editor .invisible-character, :host .invisible-character {
+  color: @syntax-invisible-character-color;
+}
+
+atom-text-editor .search-results .marker .region, :host .search-results .marker .region {
+  background-color: transparent;
+  border: @syntax-result-marker-color;
+}
+
+atom-text-editor .search-results .marker.current-result .region, :host .search-results .marker.current-result .region {
+  border: @syntax-result-marker-color-selected;
+}
+
+atom-text-editor.is-focused .cursor, :host(.is-focused) .cursor {
+  border-color: @syntax-cursor-color;
+}
+
+atom-text-editor.is-focused .selection .region, :host(.is-focused) .selection .region {
+  background-color: @syntax-selection-color;
+}
+
+atom-text-editor.is-focused .line-number.cursor-line-no-selection, atom-text-editor.is-focused .line.cursor-line, :host(.is-focused) .line-number.cursor-line-no-selection, :host(.is-focused) .line.cursor-line {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+.comment {
+  color: #82C87B;
+}
+
+.string {
+  color: #F1E9A4;
+}
+
+.constant.numeric {
+  color: #D7D7D7;
+}
+
+.variable.language, .variable.other, .variable.parameter {
+  color: #AED2E4;
+}
+
+.constant.language {
+  color: #DCAFDD;
+}
+
+.constant.character, .constant.other {
+  color: #AC9A8D;
+}
+
+.support.constant {
+  color: #DCAFDD;
+}
+
+.keyword {
+  color: #A996C1;
+}
+
+.storage {
+  color: #ED9895;
+}
+
+.entity.name.type.class {
+
+}
+
+.entity.other.inherited-class {
+}
+
+.meta.function.js > .entity.name.function.js {
+  color: @syntax-identifier-name-color;
+}
+
+.variable.parameter {
+}
+
+.entity.name.tag, .support.class.component.open.jsx, .support.class.component.close.jsx {
+  color: #DCAFDD;
+}
+
+.entity.other.attribute-name {
+  color: #B8D6FA;
+}
+
+// SCSS
+.support.type.property-name.scss {
+  color: @syntax-key-color;
+}
+
+.entity.other.attribute-name.class.css {
+  color: @syntax-identifier-name-color;
+}
+
+.variable.scss {
+  color: @syntax-variable-color;
+}
+
+
+
+.support.function {
+  color: #9EA7A5;
+}
+
+.support.type, .support.class {
+  color: #C5C0E4;
+}
+
+.support.other.variable {
+  color: rgba(255, 136, 0, 0.75);
+}
+
+.invalid {
+}
+
+.markup.deleted.diff {
+  color: #FF7472;
+  background-color: #000000;
+}
+
+.meta.separator.diff {
+  color: #92C1D4;
+  background-color: #000000;
+}
+
+.markup.inserted.diff {
+  color: #4BC44F;
+  background-color: #000000;
+}
+
+.source.diff {
+  color: #E6E6E6;
+}
+
+.meta.diff.header, .meta.diff.range, .meta.diff.index {
+  color: #92C1D4;
+  background-color: #000000;
+}
+
+.entity.name.attribute-name.js {
+  color: #AC9A8D;
+}
+
+// JavaScript
+.meta.function-call, .meta.method-call {
+  color: #9EA7A5;
+}
+.constant.other.object.key.js,
+.constant.object.key.js,
+.constant.object.key.js > .string.js,
+.constant.object.key.js > .string.js > .punctuation.definition.string.js {
+  color: @syntax-key-color;
+}
+
+.meta.method.js {
+  // color: #EAAE81;
+}
+
+.meta.function.variable.js {
+  color: @syntax-identifier-name-color;
+}
+
+.punctuation.terminator.statement.js {
+  color: #808080;
+}
+
+.entity.name.function.erlang {
+  color: #9EA7A5;
+}
+
+.constant.keyword.clojure {
+  color: #AC9A8D;
+}
+
+.source.js, .punctuation.definition.parameters.begin.js, .punctuation.definition.parameters.end.js {
+  color: #BFBFBF;
+}
+
+.entity.other.jinja.delimiter.tag {
+  color: #DCAFDD;
+}
+
+.ndebug {
+  background-color: #990000;
+}
+
+.source.js.jsx .jsx .entity.other.attribute-name {
+  color: @syntax-variable-color;
+  font-style: normal !important;
+}
+
+.entity.name.function.elm {
+  color: #EAAE81;
+}
+
+// tasks plugin syntax - they all need importants because the plugin defines its
+// own syntax highlighting with too much specificity
+.tasks {
+  &.header { color: @syntax-identifier-name-color !important; }
+  &.marker { color: @syntax-invocation-color !important; }
+  &.attribute { color: @syntax-variable-color !important; }
+}
+
+.tasks.done, .tasks.cancelled {
+  .text { color: fade(@syntax-invocation-color, 70%) !important; }
+  .marker { color: @syntax-comment-color !important; }
+  .attribute {
+    color: fade(@syntax-variable-color, 50%) !important;
+  }
+
+  &.cancelled .marker { color: @syntax-type-color !important; }
+}
